@@ -64,19 +64,19 @@ void cofactor(float mat[25][25], float order, float det) {
 }
 
 // To find the Inverse of Matrix
-void inverse(float fac[25][25], float r, float det)
+void inverse(float fac[25][25], float order, float det)
 {
     float adjoint[25][25], inverse[25][25];
-    for (int i = 0;i < r; i++)        
-        for (int j = 0;j < r; j++)        
+    for (int i = 0;i < order; i++)        
+        for (int j = 0;j < order; j++)        
             adjoint[i][j] = fac[j][i];
-    for (int i = 0;i < r; i++)       
-        for (int j = 0;j < r; j++)       
+    for (int i = 0;i < order; i++)       
+        for (int j = 0;j < order; j++)       
             inverse[i][j] = adjoint[i][j] / det;
 
     printf("The inverse of matrix is :\n");
-    for (int i = 0;i < r; i++) {
-        for (int j = 0;j < r; j++)        
+    for (int i = 0;i < order; i++) {
+        for (int j = 0;j < order; j++)        
             printf("%f ", inverse[i][j]);           
         printf("\n");
     }
