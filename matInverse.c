@@ -1,9 +1,11 @@
 #include<stdio.h>
 #include<math.h>
+
 float determinant(float [25][25], float);
 void cofactor(float [25][25], float, float);
-void transpose(float [25][25], float, float);
+void inverse(float [25][25], float, float);
 void minorMat(float[25][25], float[25][25], float, int, int);
+
 int main() {
     float mat[25][25], order, det;
     printf("Enter the order of the Matrix : ");
@@ -18,6 +20,8 @@ int main() {
     else
         cofactor(mat, order, det);
 }
+
+// To calculate Determinant of a matrix
 float determinant(float mat[25][25], float order) {
     float s = 1, det = 0, minor[25][25];
     if (order == 1)        
@@ -31,8 +35,8 @@ float determinant(float mat[25][25], float order) {
     return det;
 }
 
+// To create a minor of a matrix
 void minorMat(float mat[25][25],float minor[25][25], float order, int row, int col) {
-
     int m = 0, n = 0;
     for (int i = 0;i < order; i++)
         for (int j = 0 ;j < order; j++) {
@@ -48,6 +52,7 @@ void minorMat(float mat[25][25],float minor[25][25], float order, int row, int c
         }
 }
 
+// To find the CoFactor of a Matrix
 void cofactor(float mat[25][25], float order, float det) {
     float minor[25][25], cofac[25][25];
     for (int i = 0;i < order; i++)
@@ -55,9 +60,11 @@ void cofactor(float mat[25][25], float order, float det) {
             minorMat(mat, *minor, order, j, i);
             cofac[i][j] = pow(-1, i + j) * determinant(minor, order - 1);
         }    
-    transpose(cofac, order, det);
+    inverse(cofac, order, det);
 }
-void transpose(float fac[25][25], float r, float det)
+
+// To find the Inverse of Matrix
+void inverse(float fac[25][25], float r, float det)
 {
     int i, j;
     float adjoint[25][25], inverse[25][25];
@@ -67,10 +74,11 @@ void transpose(float fac[25][25], float r, float det)
     for (i = 0;i < r; i++)       
         for (j = 0;j < r; j++)       
             inverse[i][j] = adjoint[i][j] / det;
+
     printf("The inverse of matrix is :\n");
     for (i = 0;i < r; i++) {
         for (j = 0;j < r; j++)        
-            printf("%f ", inverse[i][j]);           
+            printf("%.0f ", inverse[i][j]);           
         printf("\n");
     }
 }
