@@ -17,7 +17,7 @@ int main() {
     for (int coeff = 0; coeff<deg2; coeff++)
         scanf("%d", &poly2[coeff]);
 
-    // to find the highest and lowest possible degree among the plynomials
+    // to find the highest and lowest possible degree among the polynomials
     int highest_deg = deg1 < deg2 ? deg1 : deg2;
     int lowest_deg = deg1 > deg2 ? deg1 : deg2;
     

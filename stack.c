@@ -1,14 +1,11 @@
-// Aswin K
-// 12012035
-
 #include <stdio.h>
 
 #define MAXSiZE 3
 
-int array[MAXSiZE];
+int stack[MAXSiZE];
 int top = -1;
 
-void push();
+void push(int);
 void pop();
 void peek();
 int isEmpty();
@@ -16,68 +13,52 @@ int isFull();
 
 int main()
 {
-    int choice, status = 1;
+    push(5);
+    push(16);
+    push(28);
+    push(71);
+    peek();
+    pop();
+    peek();
+    pop();
+    peek();
+    pop();
+    pop();
+    push(46);
+    peek();
 
-    while (status == 1)
-    {
-        printf("1.Push 2.Pop 3.Peek 4.Exit\n");
-        printf("Enter Choice: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            push();
-            break;
-        case 2:
-            pop();
-            break;
-        case 3:
-            peek();
-            break;
-        case 4:
-            status = 0;
-            break;
-        default:
-            status = 0;
-            break;
-        }
-    }
     return 0;
 }
 
-void push()
+void push(int item)
 {
     if (isFull() == 1)
     {
-        printf("Overflow\n");
+        printf("Stack Overflow\n");
         return;
     }
-    int item;
-    printf("Enter a number: ");
-    scanf("%d", &item);
-    array[++top] = item;
-    printf("Pushed: %d\n", array[top]);
+    stack[++top] = item;
+    printf("Pushed: %d\n", stack[top]);
 }
 
 void pop()
 {
     if (isEmpty() == 1)
     {
-        printf("Underflow\n");
+        printf("Stack Underflow\n");
         return;
     }
-    printf("Poped: %d\n", array[top--]);
+    printf("Poped: %d\n", stack[top--]);
 }
 
 void peek()
 {
     if (isEmpty() == 1)
     {
-        printf("Underflow\n");
+        printf("Stack Underflow\n");
         return;
     }
-    printf("Top Element: %d\n", array[top]);
+    printf("Top Element: %d\n", stack[top]);
 }
 
 int isEmpty()

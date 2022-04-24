@@ -1,15 +1,12 @@
-// Aswin K
-// 12012035
-
 #include <stdio.h>
 
-#define MAXSiZE 3
+#define MAXSiZE 4
 
-int array[MAXSiZE];
+int queue[MAXSiZE];
 int front = -1;
 int rear = -1;
 
-void enqueue();
+void enqueue(int);
 void dequeue();
 void peek();
 int isEmpty();
@@ -17,70 +14,55 @@ int isFull();
 
 int main()
 {
-    int num, choice, status = 1;
+    enqueue(5);
+    enqueue(16);
+    dequeue();
+    peek();
+    enqueue(71);
+    dequeue();
+    peek();
+    dequeue();
+    peek();
+    dequeue();
+    enqueue(28);
+    dequeue();
+    peek();
+    enqueue(25);
 
-    while (status == 1)
-    {
-        printf("1.Enqueue 2.Dequeue 3.Peek 4.Exit\n");
-        printf("Enter Choice: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            enqueue();
-            break;
-        case 2:
-            dequeue();
-            break;
-        case 3:
-            peek();
-            break;
-        case 4:
-            status = 0;
-            break;
-        default:
-            status = 0;
-            break;
-        }
-    }
     return 0;
 }
 
-void enqueue()
+void enqueue(int item)
 {
     if (isFull() == 1)
     {
-        printf("Overflow\n");
+        printf("Queue Overflow\n");
         return;
-    }
-    int item;
-    printf("Enter a number: ");
-    scanf("%d", &item);
-    
+    }    
     if (front == -1)
         front = 0;
-    array[++rear] = item;
+    queue[++rear] = item;
+    printf("Enqueued %d\n", queue[rear]);
 }
 
 void dequeue()
 {
     if (isEmpty() == 1)
     {
-        printf("Underflow\n");
+        printf("Queue Underflow\n");
         return;
     }
-    printf("Poped: %d\n", array[front++]);
+    printf("%d Dequeued\n", queue[front++]);
 }
 
 void peek()
 {
     if (isEmpty() == 1)
     {
-        printf("Underflow\n");
+        printf("Queue Underflow\n");
         return;
     }
-    printf("Front Element: %d\n", array[front]);
+    printf("Front Element: %d\n", queue[front]);
 }
 
 int isEmpty()
