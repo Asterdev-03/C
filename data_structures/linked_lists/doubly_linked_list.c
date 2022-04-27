@@ -1,29 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*doubly linked list has additional link in each node compared to 
+/*doubly linked list has additional link in each node compared to
  *the linked list we have seen
  *a doubly linked list looks like :
  *   Node1<===>Node2<===>Node3<====>Node4<===>.....Nodek
  *whereas a singly linked list looks like:
- *   Node1--->Node2--->Node3--->Node4....... 
+ *   Node1--->Node2--->Node3--->Node4.......
  *The advantage of doubly linked list is that it permits traversal in both forward
- * and backward direction. Given any node you can retrieve the contents of the whole 
+ * and backward direction. Given any node you can retrieve the contents of the whole
  * list.
  */
 
 struct dllNode
 {
-    //data part
+    // data part
     int key;
 
-    //link part
-    struct dllNode *next; //this pointer is used to store the address of the next node in the list
-    struct dllNode *prev; //this pointer is used to store the address of the previous node in the list
+    // link part
+    struct dllNode *next; // this pointer is used to store the address of the next node in the list
+    struct dllNode *prev; // this pointer is used to store the address of the previous node in the list
 };
 
 typedef struct dllNode node;
 
-//this function dynamically creates a node of dllNode type and returns its address
+// this function dynamically creates a node of dllNode type and returns its address
 node *newNode()
 {
     node *newNode = (node *)malloc(sizeof(node));
@@ -32,7 +32,7 @@ node *newNode()
     return newNode;
 }
 
-//this frees the memory alloted to a node and returns the chunk of memory back to the heap
+// this frees the memory alloted to a node and returns the chunk of memory back to the heap
 void freeNode(node *remNode)
 {
     free(remNode);
@@ -72,7 +72,7 @@ node *searchForX(node *header, int x)
 void insertAtFront(node **header, int k)
 {
     node *newnode;
-    //check if the header is null that is, the list is empty
+    // check if the header is null that is, the list is empty
     if (*header == NULL)
     {
         *header = newNode();
@@ -125,7 +125,7 @@ void insertAfterX(node *header, int x, int k)
 }
 
 /*function to print the doubly linked list
- *it starts from the header and traverses forward 
+ *it starts from the header and traverses forward
  *using next pointer in each node to print the key
  *
  */

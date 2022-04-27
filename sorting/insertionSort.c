@@ -1,15 +1,8 @@
 #include <stdio.h>
 
-void swap(int *a, int *b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
 void insertionsort(int arr[], int size)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 1; i < size; i++)
     {
         int j, temp = arr[i];
         for (j = i - 1; temp < arr[j] && j >= 0; j--)
