@@ -58,7 +58,6 @@ int getPriority(char x)
 
 /**
  * @brief Conversion procedure, infix to postfix
- *
  * @param infix expression in infix form
  * @param postfix expression in postfix form
  */
@@ -98,11 +97,11 @@ void toPostfix(char infix[], char postfix[])
 int main()
 {
     char infix[20], postfix[20];
-    printf("Enter the infix expression: ");
+    printf("Enter the Infix expression: ");
     scanf("%s", &infix);
 
     toPostfix(infix, postfix);
 
-    printf("%s", postfix);
+    printf("Postfix expression: %s", postfix);
     return 0;
 }

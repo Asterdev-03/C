@@ -1,5 +1,5 @@
 /**
- * @file queue.c
+ * @file linearQueue.c
  * @brief Implementation of a Linear Queue using array in C.
  * @details The implementation has following functionalities:
  *  - Enqueue

@@ -19,6 +19,17 @@ typedef struct treeNode
     struct treeNode *right; // right child
 } node;
 
+node *newNode(int data);
+void purge(node **root);
+void insertNode(node **root, int key);
+void printInOrder(node *root);
+void printPreOrder(node *root);
+void printPostOrder(node *root);
+node *search(node *root, int key);
+node *getSuccessorNode(node *root);
+node *deleteNode(node **root, int key);
+int countLeafs(node *root);
+
 /**
  * @brief The function to create a node and initialize it's data and link parts
  * @param data the data part to be stored in the node
@@ -171,7 +182,7 @@ node *deleteNode(node **root, int key)
         if ((*root)->left == NULL && (*root)->right == NULL)
         {
             // case 1: root has no leaves, then remove the root
-            free(root);
+            *root = NULL;
             return NULL;
         }
         else if ((*root)->left == NULL)
@@ -220,53 +231,64 @@ int countLeafs(node *root)
 
 int main()
 {
-    node *root = NULL;
+    node *root = NULL, *ptr;
+    int status = 1, option, key;
+    while (status == 1)
+    {
+        printf("1. Insert 2. Delete 3. Search 4. Display 5. Leaf Count 6. Exit\n");
+        printf("Enter option: ");
+        scanf("%d", &option);
 
-    /*
-                                     15
-                     7                           21
-             6               9               _           35
-         5       _       8       10                  32      40
-    */
+        switch (option)
+        {
+        case 1:
+            printf("Enter value to be inserted: ");
+            scanf("%d", &key);
+            insertNode(&root, key);
+            break;
+        case 2:
+            printf("Enter value to be deleted: ");
+            scanf("%d", &key);
+            ptr = deleteNode(&root, key);
+            if (ptr == NULL)
+                printf("Element Not Found\n");
+            else
+                printf("%d is Deleted\n", ptr->data);
+            break;
+        case 3:
+            printf("Enter value to be searched: ");
+            scanf("%d", &key);
+            ptr = search(root, key);
+            if (ptr == NULL)
+                printf("Element Not Found\n");
+            else
+                printf("%d is Found\n", ptr->data);
+            break;
+        case 4:
+            printf("Inorder : ");
+            printInOrder(root);
+            printf("\n");
 
-    insertNode(&root, 15);
-    insertNode(&root, 7);
-    insertNode(&root, 21);
-    insertNode(&root, 6);
-    insertNode(&root, 9);
-    insertNode(&root, 35);
-    insertNode(&root, 5);
-    insertNode(&root, 8);
-    insertNode(&root, 10);
-    insertNode(&root, 32);
-    insertNode(&root, 40);
+            printf("Preorder : ");
+            printPreOrder(root);
+            printf("\n");
 
-    printf("Inorder : ");
-    printInOrder(root);
-    printf("\n");
-
-    printf("Preorder : ");
-    printPreOrder(root);
-    printf("\n");
-
-    printf("Postorder : ");
-    printPostOrder(root);
-    printf("\n");
-
-    node *ptr = search(root, 35);
-    if (ptr == NULL)
-        printf("Element Not Found\n");
-    else
-        printf("%d is Found\n", ptr->data);
-
-    deleteNode(&root, 35);
-
-    printf("Current Order : ");
-    printInOrder(root);
-    printf("\n");
-
-    printf("Leafs : %d\n", countLeafs(root));
-
+            printf("Postorder : ");
+            printPostOrder(root);
+            printf("\n");
+            break;
+        case 5:
+            printf("No. of leafs : %d\n", countLeafs(root));
+            break;
+        case 6:
+            status = 0;
+            break;
+        default:
+            printf("Enter appropriate option.\n");
+            break;
+        }
+    }
+    free(ptr);
     purge(&root);
     return 0;
 }
