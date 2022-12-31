@@ -60,7 +60,13 @@ int main()
             strcpy(objcode, operand);
         else if (strcmp(mnemonic, "BYTE") == 0)
         {
-            sprintf(str, "%d", operand[2]);
+            strcpy(str, "\0");
+            char str2[10];
+            for (int i = 2; i < strlen(operand) - 1; i++)
+            {
+                sprintf(str2, "%d", operand[i]);
+                strcpy(str, strcat(str, str2));
+            }
             strcpy(objcode, str);
         }
         else

@@ -55,7 +55,7 @@ int main()
             if (operand[0] == 'X')
                 locctr += 1;
             else
-                locctr += strlen(operand) - 2;
+                locctr += strlen(operand) - 3;
         }
 
         fscanf(f1, "%s%s", label, mnemonic);
