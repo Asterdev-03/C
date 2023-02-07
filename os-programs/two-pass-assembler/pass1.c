@@ -19,12 +19,11 @@ int main()
         startaddr = atoi(operand);
         locctr = startaddr;
         fprintf(f3, "\t\t%s\t%s\t%s\n", label, mnemonic, operand);
+        fscanf(f1, "%s%s%s", label, mnemonic, operand);
     }
 
-    fscanf(f1, "%s%s", label, mnemonic);
     while (!feof(f1))
     {
-        fscanf(f1, "%s", operand);
         fprintf(f3, "%d\t%s\t%s\t%s\n", locctr, label, mnemonic, operand);
 
         if (strcmp(label, "-") != 0)
@@ -58,7 +57,7 @@ int main()
                 locctr += strlen(operand) - 3;
         }
 
-        fscanf(f1, "%s%s", label, mnemonic);
+        fscanf(f1, "%s%s%s", label, mnemonic, operand);
     }
 
     if (strcmp(mnemonic, "END") == 0)
