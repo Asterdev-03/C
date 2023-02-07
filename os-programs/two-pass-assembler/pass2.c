@@ -23,6 +23,7 @@ int main()
 
     while (strcmp(mnemonic, "END") != 0)
     {
+        rewind(f3);
         flag1 = 0;
 
         fscanf(f3, "%s%s", opcode, machlan);
