@@ -26,6 +26,7 @@ int main()
                 flag1 = 1;
                 count++;
                 time[j] = count;
+                printf("No Replacements");
                 break;
             }
         if (flag1 == 0)
