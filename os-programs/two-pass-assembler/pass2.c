@@ -41,14 +41,16 @@ int main()
         {
             flag2 = 0;
             rewind(f2);
+            fscanf(f2, "%s%d", symname, &symloc);
             while (!feof(f2))
             {
-                fscanf(f2, "%s%d", symname, &symloc);
+
                 if (strcmp(symname, operand) == 0)
                 {
                     flag2 = 1;
                     break;
                 }
+                fscanf(f2, "%s%d", symname, &symloc);
             }
 
             if (flag2 == 1)
@@ -65,7 +67,7 @@ int main()
             char str2[10];
             for (int i = 2; i < strlen(operand) - 1; i++)
             {
-                sprintf(str2, "%d", operand[i]);
+                sprintf(str2, "%x", operand[i]);
                 strcpy(str, strcat(str, str2));
             }
             strcpy(objcode, str);
