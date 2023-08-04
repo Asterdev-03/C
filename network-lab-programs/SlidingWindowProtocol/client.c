@@ -30,16 +30,16 @@ int main()
     while (1)
     {
         recv(clientSocket, buffer, sizeof(buffer), 0);
-        printf("Data Received: %s \n", buffer);
-
         if (strcmp(buffer, "exit") == 0)
         {
             printf("Exiting\n");
             break;
         }
+        printf("Data Received: %s \n", buffer);
+
         printf("Do you want to report an error? (1-Yes, 0-No): ");
         scanf("%d", &choice);
-        if (!choice)
+        if (choice == 0)
         {
             strcpy(buffer, "-1");
             send(clientSocket, buffer, sizeof(buffer), 0);
