@@ -29,11 +29,12 @@ int main()
 
     printf("Enter existing file name: ");
     scanf("%s", buffer);
+    send(clientSocket, buffer, sizeof(buffer), 0);
+
     printf("Enter new file name: ");
     scanf("%s", fname);
 
     fp = fopen(fname, "w");
-    send(clientSocket, buffer, sizeof(buffer), 0);
 
     while (1)
     {
