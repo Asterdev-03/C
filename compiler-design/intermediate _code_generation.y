@@ -1,35 +1,53 @@
 %{
-#include <stdio.h>
-#include <stdlib.h>
-char p = 'A';
+#include<stdio.h>
+#include<stdlib.h>
+char p='A';
 %}
-
-%union { char dval; }
+%union {char dval;}
 %token NUM sign
-%left '+' '-'
-%left '*' '/'
+%left '+''-'
+%left '*''/'
 %type <dval> S
 %type <dval> E
+%%
+
+S:E {printf("X=%c\n",$$);}
+
+E:NUM {}|E'+'E {printf("%c=%c+%c\n",p,$1,$3);$$=p;p++;}
+
+|E'-'E {printf("%c=%c-
+%c\n",p,$1,$3);$$=p;p++;} |E'*'E 
+
+{printf("%c=%c*%c\n",p,$1,$3);$$=p;p
+
+++;} |E'/'E 
+
+{printf("%c=%c/%c\n",p,$1,$3);$$=p;p
+
+++;}
 
 %%
 
-S: E { printf("X=%c\n", $$); }
+int main()
 
-E: NUM {} | E '+' E { printf("%c=%d+%d\n", p, $1, $3); $$ = p; p++; }
- | E '-' E { printf("%c=%d-%d\n", p, $1, $3); $$ = p; p++; }
- | E '*' E { printf("%c=%d*%d\n", p, $1, $3); $$ = p; p++; }
- | E '/' E { printf("%c=%d/%d\n", p, $1, $3); $$ = p; p++; }
+{
 
-%%
+printf("Enter the expression : ");
 
-int main() {
-    printf("Enter the expression : ");
-    yyparse();
-    printf("Expression is valid\n");
-    return 0;
+yyparse();
+
+printf("Expression is valid\n");
+
+return 0;
+
 }
 
-int yyerror(char *s) {
-    printf("Expression is invalid: %s\n", s);
-    exit(0);
+int yyerror()
+
+{
+
+printf("Expression is invalid \n");
+
+exit(0);
+
 }
