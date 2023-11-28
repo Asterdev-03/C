@@ -1,8 +1,8 @@
 %{
-	#include "y.tab.h"
+#include "y.tab.h"
 %}
 %%
-[a-zA-Z_][a-zA-Z0-9]* return letter;
+[a-zA-Z_] return letter;
 [0-9] return digit;
 .	return yytext[0];
 \n return 0;
