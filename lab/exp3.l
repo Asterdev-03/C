@@ -3,6 +3,7 @@
 %}
 %%
 [ \n\t] {printf("");}
+. {printf("%s",yytext)}
 %%
 void main()
 {
