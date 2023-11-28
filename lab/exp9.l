@@ -10,7 +10,6 @@ int main()
 {
 fp1=fopen("b.txt","w");
 fp=fopen("a.txt","r");
-yyin=fp1;
 yyin=fp;
 yylex();
 }
