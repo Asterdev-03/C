@@ -36,7 +36,7 @@ int main()
 		}
 		else if((ch==' '||ch=='\n')&&(j!=0))
 		{
-			buffer[j]='\O';
+			buffer[j]='\0';
 			j=0;
 			if(isKeyword(buffer)==1)
 			printf("%s is keyword\n",buffer);
