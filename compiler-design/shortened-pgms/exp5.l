@@ -7,10 +7,10 @@ identifier [a-zA-Z][a-zA-Z0-9]*
 int|float|char|double|while|for|if|break|continue|void|return|else {printf("\n%s is a keyword", yytext);}
 
 {identifier}\( {printf("\nFunction %s", yytext);}
-"{" {printf("\nBLOCK BEGINS");}
+"{" {printf("BLOCK BEGINS");}
 "}" {printf("BLOCK ENDS ");}
 
-{identifier}(\[[0-9]*\])? {printf("\n%s is an IDENTIFIER", yytext);}
+{identifier} {printf("\n%s is an IDENTIFIER", yytext);}
 \".*\" {printf("\n%s is a STRING", yytext);}
 [0-9]+ {printf("\n%s is a CONSTANT", yytext);}
 
