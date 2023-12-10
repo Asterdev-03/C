@@ -4,11 +4,11 @@
 
 %%
 [ \n\t] {printf("");}
-. {printf("%s",yytext)}
+. {printf("%s",yytext);}
 %%
 
 void main()
 {
-yyin=fopen("input.txt","r")
+yyin=fopen("input.txt","r");
 yylex();
 }

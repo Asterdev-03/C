@@ -18,16 +18,16 @@ int|float|char|double|while|for|if|break|continue|void|return|else {printf("\n%s
 \+ |
 \- |
 \* {printf("\n%s is an ARITHMETIC OPERATOR", yytext);}
-\= {printf("\n%s is an ASSIGNMENT OPERATOR",yytext);}
+= {printf("\n%s is an ASSIGNMENT OPERATOR",yytext);}
 \<= |
 \>= |
-\<= |
+\< |
 \== |
 \> {printf("\n%s is a RELATIONAL OPERATOR",yytext);}
 
 %%
 
 int main(){
-yyin=fopen("program.c","r");
+yyin=fopen("program.txt","r");
 yylex();
 }

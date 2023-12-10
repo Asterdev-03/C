@@ -11,7 +11,7 @@ s: letter s| digit s|;
 int yyerror()
 {
 printf("\nIts not an identifier\n");
-exit(0)
+exit(0);
 }
 int main(){
 printf("\nEnter a name to be tested for identifier\n");

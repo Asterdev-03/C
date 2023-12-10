@@ -9,7 +9,7 @@ FILE *fp;
 
 int main()
 {
-fp=fopen("b.txt","w");
-yyin=fopen("a.txt","r");
+fp=fopen("output.txt","w");
+yyin=fopen("input.txt","r");
 yylex();
 }
