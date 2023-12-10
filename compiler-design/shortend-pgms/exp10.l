@@ -2,6 +2,7 @@
 %}
 %s A B C DEAD
 %%
+
 <INITIAL>1 BEGIN A;
 <INITIAL>0 BEGIN B;
 <INITIAL>[^01\n] BEGIN DEAD;
@@ -21,6 +22,7 @@
 <DEAD>[^\n] BEGIN DEAD;
 <DEAD>\n BEGIN INITIAL; {printf("Invalid\n");}
 %%
+
 int main()
 {
 printf("Enter String\n");

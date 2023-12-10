@@ -1,7 +1,6 @@
 %{
 #include <stdio.h>
-int word=0;
-int line=0,ch=0;
+int word=0,line=0,ch=0;
 %}
 
 %%
@@ -13,6 +12,7 @@ int line=0,ch=0;
 int main(){
 yyin=fopen("input.txt","r");
 yylex();
-printf("line count:%d\n",line);
+printf("character count:%d\n",ch);
 printf("word count:%d\n",word);
+printf("line count:%d\n",line);
 }

@@ -1,12 +1,12 @@
 %{
 #include <stdio.h>
-int v=0,c=0;
+int vowels=0,consonants=0;
 %}
 
 %%
 
-[aeiouAEIOU] {v++;}
-[a-zA-Z] {c++;}
+[aeiouAEIOU] {vowels++;}
+[a-zA-Z] {consonants++;}
 . {}
 
 %%
@@ -14,5 +14,6 @@ int v=0,c=0;
 int main(){
 yyin=fopen("input.txt","r");
 yylex();
-printf("vowel=%d",v);
+printf("vowels=%d",vowels);
+printf("consonants=%d",consonants);
 }
