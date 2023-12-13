@@ -10,7 +10,7 @@ int|float|char|double|while|for|if|break|continue|void|return|else {printf("\n%s
 "{" {printf("BLOCK BEGINS");}
 "}" {printf("BLOCK ENDS ");}
 
-{identifier} {printf("\n%s is an IDENTIFIER", yytext);}
+{identifier}(\[[0-9]*\])? {printf("\n%s is an IDENTIFIER", yytext);}
 \".*\" {printf("\n%s is a STRING", yytext);}
 [0-9]+ {printf("\n%s is a CONSTANT", yytext);}
 
