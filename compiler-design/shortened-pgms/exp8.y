@@ -15,7 +15,10 @@ T: T'+'T {$$=$1+$3;}
 |'('T')' {$$=$2;}
 |NUMBER {$$=$1;};
 %%
-
+int yyerror()
+{
+printf("\nInput correct format for the calculaor\n");
+}
 int main()
 {
 printf("\nEnter the expression:\n");
