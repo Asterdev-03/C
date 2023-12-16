@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int a = 1;
+    int a = 1+2;
     char b = "hi";
-    return 0;
+    return a == b;
 }
