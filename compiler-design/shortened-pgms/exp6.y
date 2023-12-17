@@ -1,11 +1,12 @@
 %{
 #include <stdio.h>
+#include <stdlib.h>
 %}
 %token num id op
 %%
 
 start: id'='s';'
-s: '-' id x|id x|num x|'-'num x|'('s')'x;
+s: '-' id x|id x|num x|'-'num x|'('s')'x
 x: op s|'-'s|
 %%
 

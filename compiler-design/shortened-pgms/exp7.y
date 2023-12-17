@@ -1,11 +1,12 @@
 %{
 #include <stdio.h>
+#include <stdlib.h>
 %}
 %token digit letter
 %%
 
 start : letter s
-s: letter s| digit s|;
+s: letter s|digit s|
 %%
 
 int yyerror()
