@@ -1,15 +1,13 @@
 %{
-FILE *fp;
 %}
 %%
 
-[a-z] fprintf(fp,"%c",toupper(yytext[0]));
-. fprintf(fp,"%c",yytext[0]);
+[a-z] printf("%c",toupper(yytext[0]));
+. printf("%c",yytext[0]);
 %%
 
 int main()
 {
-fp=fopen("output.txt","w");
 yyin=fopen("input.txt","r");
 yylex();
 }
