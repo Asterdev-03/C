@@ -1,6 +1,5 @@
 %{
 #include<stdio.h>
-#include<stdlib.h>
 char p='A';
 %}
 
@@ -21,10 +20,8 @@ int main()
 {
 printf("Enter the expression : ");
 yyparse();
-return 0;
 }
 int yyerror()
 {
 printf("Expression is invalid \n");
-exit(0);
 }
