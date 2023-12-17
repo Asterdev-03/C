@@ -4,7 +4,6 @@ int vowels=0,consonants=0;
 %}
 
 %%
-
 [aeiouAEIOU] {vowels++;}
 [a-zA-Z] {consonants++;}
 . {}
@@ -14,6 +13,6 @@ int vowels=0,consonants=0;
 int main(){
 yyin=fopen("input.txt","r");
 yylex();
-printf("vowels=%d",vowels);
-printf("consonants=%d",consonants);
+printf("vowels=%d\n",vowels);
+printf("consonants=%d\n",consonants);
 }
