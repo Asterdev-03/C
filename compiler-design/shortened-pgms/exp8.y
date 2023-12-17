@@ -1,7 +1,7 @@
 %{
 #include <stdio.h>
 %}
-%token NUMBER ID;
+%token NUMBER
 %left '+''-'
 %left '*''/'
 %%
@@ -13,7 +13,7 @@ T: T'+'T {$$=$1+$3;}
 |T'/'T {$$=$1/$3;}
 |'-'NUMBER {$$=-$2;}
 |'('T')' {$$=$2;}
-|NUMBER {$$=$1;};
+|NUMBER {$$=$1;}
 %%
 int yyerror()
 {
