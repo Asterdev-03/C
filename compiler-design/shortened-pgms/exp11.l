@@ -1,9 +1,10 @@
 %{
 #include"y.tab.h"
 %}
+
 %%
 
-[0-9]+ {yylval.dval=(*yytext);return NUM;}
+[0-9]+ {yylval=*yytext;return NUM;}
 \n return 0;
 . return yytext[0];
 %%
